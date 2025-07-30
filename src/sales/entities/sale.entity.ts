@@ -27,10 +27,10 @@ export class SaleContents {
   @Column({ type: 'decimal' })
   price!: number;
 
-  @ManyToOne(() => Product, (product) => product.id, { eager: true })
+  @ManyToOne(() => Product, (product) => product.id, { eager: true, cascade: true })
   product!: Product;
 
-  @ManyToOne(() => Sale, (sale) => sale.contents)
+  @ManyToOne(() => Sale, (sale) => sale.contents, { cascade: true })
   sale!: Sale;
 }
 
@@ -38,8 +38,18 @@ export class SaleContents {
 //     "id": 1,
 //     "total": 100.00,
 //     "saleDate": "2023-10-01T12:00:00.000Z",
-//     "saleContents": [
+//     "contents": [
 
 //     ]
 
+// }
+
+// {
+//   id,
+//   price,
+//   quantity:
+//   product:
+//   sale: {
+
+//   }
 // }
